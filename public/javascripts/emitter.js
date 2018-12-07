@@ -16,5 +16,8 @@ Emitter.prototype.emit = function (event, ...args) {
 var emitter = new Emitter();
 
 module.exports = {
-    emitter: emitter
+    emitter: emitter,
+    eventList: {
+        FLUSH_DATA: 'flushData'
+    }
 };

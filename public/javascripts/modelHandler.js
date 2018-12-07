@@ -1,6 +1,6 @@
 var db = require('../resources/db.json');
 var { Response } = require('./response');
-let { emitter } = require('./emitter');
+let { emitter, eventList } = require('./emitter');
 
 class ModelHandler {
     listModel(model) {
@@ -20,7 +20,7 @@ class ModelHandler {
         }
         obj.id = this._getLatestId(data[model]);
         data[model].push(obj);
-        emitter.emit('flushData', data);
+        emitter.emit(eventList.FLUSH_DATA, data);
         return new Response(201, data[model]);
     }
 
